@@ -18,7 +18,7 @@ export const useCountDownTimer: UseCountDownTimer = () => {
     "idle"
   );
   const [callback, setCallback] = React.useState<(() => void) | null>(null);
-  const [timerId, setTimerId] = React.useState<number | null>(null);
+  const [timerId, setTimerId] = React.useState<NodeJS.Timeout | null>(null);
 
   const start = React.useCallback((sec: number, cb: () => void) => {
     setSeconds(sec);

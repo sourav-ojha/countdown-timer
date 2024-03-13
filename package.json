@@ -1,33 +1,54 @@
 {
-  "name": "countdown-timer",
-  "private": true,
+  "name": "@souravojha/countdown-timer",
   "version": "0.0.0",
   "type": "module",
+  "source": "src/index.ts",
+  "module": "dist/countdown-timer.esm.js",
+  "types": "src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/countdown-timer.esm.js",
+      "require": "./dist/countdown-timer.umd.js"
+    }
+  },
+  "umd:main": "./dist/countdown-timer.umd.js",
+  "main": "./dist/countdown-timer.umd.js",
+  "unpkg": "./dist/countdown-timer.umd.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "build": "microbundle --tsconfig ./tsconfig.json",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
-    "@vitejs/plugin-react-swc": "^3.5.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "microbundle": "^0.15.1",
     "typescript": "^5.2.2",
-    "vite": "^5.1.6"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "author": {
-    "email": "subhamojha9@gmail.com",
-    "name": "Sourav Ojha",
-    "url": "https://github.com/sourav-ojha"
-  }
+  "author": "Sourav Ojha <subhamojha9@gmail.com> (https://github.com/sourav-ojha)",
+  "description": "A simple React countdown timer. The timer can be started, paused, and reset.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sourav-ojha/countdown-timer.git"
+  },
+  "keywords": [
+    "count-down",
+    "timer",
+    "timeout",
+    "hooks",
+    "react-hooks",
+    "countdown"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sourav-ojha/countdown-timer/issues"
+  },
+  "homepage": "https://github.com/sourav-ojha/countdown-timer#readme"
 }
