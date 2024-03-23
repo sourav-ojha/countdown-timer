@@ -1,36 +1,33 @@
 {
   "name": "@souravojha/countdown-timer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
-  "source": "src/index.ts",
-  "module": "dist/countdown-timer.esm.js",
-  "types": "src/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/countdown-timer.esm.js",
-      "require": "./dist/countdown-timer.umd.js"
-    }
+  "main": "dist/index.js",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "umd:main": "./dist/countdown-timer.umd.js",
-  "main": "./dist/countdown-timer.umd.js",
-  "unpkg": "./dist/countdown-timer.umd.js",
   "scripts": {
-    "build": "microbundle --tsconfig ./tsconfig.json",
+    "build": "rollup -c",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {},
   "devDependencies": {
+    "@types/node": "^20.11.30",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "microbundle": "^0.15.1",
-    "typescript": "^5.2.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rollup": "^4.13.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typescript": "^5.2.2"
   },
   "author": "Sourav Ojha <subhamojha9@gmail.com> (https://github.com/sourav-ojha)",
   "description": "A simple React countdown timer. The timer can be started, paused, and reset.",

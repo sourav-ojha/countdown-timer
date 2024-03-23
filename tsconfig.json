@@ -1,32 +1,24 @@
 {
   "compilerOptions": {
-    "composite": true,
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "outDir": "dist",
     "module": "ESNext",
-    "skipLibCheck": true,
-
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "sourceMap": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "noEmit": true,
-    // "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    // "isolatedModules": true,
-
-    "allowSyntheticDefaultImports": true,
-
+    "allowJs": false,
+    "jsx": "react",
     "declaration": true,
-    "outDir": "./dist",
-
-    /* Linting */
-    "strict": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "allowSyntheticDefaultImports": true,
+    "types": ["node"]
   },
-  "include": ["src"]
-  // "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "example", "rollup.config.js"]
 }
