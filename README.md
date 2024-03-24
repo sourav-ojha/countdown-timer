@@ -5,18 +5,30 @@ A simple React countdown timer. The timer can be started, paused, and reset.
 ## Installation
 
 ```bash
-npm install @souravojha/use-countdown-timer
+npm install @souravojha/countdown-timer
 ```
 
 ## Usage
 
 ```ts
-import { useCountdownTimer } from "@souravojha/use-countdown-timer";
+import { useCountdownTimer } from "@souravojha/countdown-timer";
 
-const { seconds, start, pause, resume, reset, executeCallback, clear, status } =
-  useCountdownTimer({});
+const timer = useCountdownTimer();
 
-start(1000, () => console.log("Done!"));
+timer.start(1000, () => console.log("Done!"));
+```
+
+## Methods
+
+```
+    seconds: number;
+    start: (sec: number, callback: () => void) => void;
+    pause: () => void;
+    resume: () => void;
+    reset: () => void;
+    executeCallback: () => void;
+    clear: () => void;
+    status: string;
 ```
 
 ## API

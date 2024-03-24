@@ -22,7 +22,7 @@ export const useCountDownTimer: UseCountDownTimer = () => {
 
   const start = React.useCallback((sec: number, cb: () => void) => {
     setSeconds(sec);
-    setCallback(cb);
+    setCallback(() => cb);
     setStatus("running");
     setTimerId(null);
   }, []);
@@ -41,17 +41,17 @@ export const useCountDownTimer: UseCountDownTimer = () => {
 
   const clear = React.useCallback(() => {
     if (timerId) {
-      clearTimeout(timerId);
+      // clearTimeout(timerId);
+      clearInterval(timerId);
       setTimerId(null);
       setStatus("idle");
     }
   }, [timerId]);
 
   const executeCallback = React.useCallback(() => {
-    if (!callback) {
-      return;
+    if (callback) {
+      callback();
     }
-    callback();
     setCallback(null);
     clear();
     reset();
@@ -59,16 +59,23 @@ export const useCountDownTimer: UseCountDownTimer = () => {
 
   useEffect(() => {
     if (status === "running" && seconds > 0) {
-      const id = setTimeout(() => {
+      const id = setInterval(() => {
         setSeconds((prevSeconds: number) => prevSeconds - 1);
       }, 1000);
       setTimerId(id);
-    } else if (status === "running" && seconds === 0) {
+    } else if (status === "paused") {
+      if (timerId) {
+        clearInterval(timerId);
+        setTimerId(null);
+      }
+    }
+  }, [status]);
+
+  useEffect(() => {
+    if (status === "running" && seconds < 1) {
       executeCallback();
     }
-
-    return clear;
-  }, [status, seconds, clear, executeCallback]);
+  }, [status, seconds, executeCallback]);
 
   return {
     seconds,
